@@ -27,7 +27,7 @@ Bhutan data set is given as a sample to see how the input directory needs to be.
 Type the following command to run the code.
 
 ```
-bash evolution.sh \<country\> \<threshold\>
+bash evolution.sh <country> <threshold>
 ```
 Here, **\<threshold\>** is a value between **0 and 1 (inclusive)**, which determines what percentage of N's are allowed to be in the genome sequences. Those genomes that have higher percentage of N's than the \<threshold\> are filtered out from both the fasta directory and the metadata file.
 
