@@ -1,5 +1,5 @@
 ##creating a new conda environment
-conda create --name evolution --yes python=3.7  # --yes accepts all suggestions
+conda create --name evolution --yes python=3.7
 conda activate evolution
 
 ##installing pyani
