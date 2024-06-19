@@ -21,3 +21,10 @@ The input directory, **\<country\>** has to be inside the **viral_evolution** di
 4. Lineage
 
 Bhutan data set is given as a sample to see how the input directory needs to be.
+
+<h3>Running the code</h3>
+
+```
+bash evolution.sh \<country\> \<threshold\>
+```
+Here, \<threshold\> is a value between 0 and 1 (inclusive), which determines what percentage of N's are allowed to be in the genome sequences. Those genomes that have higher percentage of N's than the \<threshold\> are filtered out from both the fasta directory and the metadata file.
