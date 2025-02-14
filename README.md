@@ -36,7 +36,7 @@ Here, **\<threshold\>** is a value between **0 and 1 (inclusive)**, which determ
 The Bhutan data set is provided as a sample data set to run. The following command will run the code on the Bhutan data set.
 
 ```
-bash evolution.sh Bhutan/ 0
+bash evolution.sh Bhutan 0
 ```
 
 Here, we use 0 as threshold to filter out all the genomes that have N's.
