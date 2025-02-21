@@ -18,3 +18,6 @@ conda install editdistance
 conda install numpy
 pip install networkx
 pip install matplotlib
+conda install -c bioconda mafft
+conda install -c bioconda raxml
+pip install python-Levenshtein
