@@ -14,7 +14,6 @@ sourmash="/sourmash"
 pyani="/pyani"
 editdistance="/editdistance"
 
-
 mkdir "$dir$outputdir"
 mkdir "$dir$outputdir$sourmash"
 mkdir "$dir$outputdir$pyani"
@@ -32,13 +31,14 @@ pyani_script="pyani.sh"
 chmod +x "$pyani_script"
 ./pyani.sh $dir
 
-##blasts
-blast_script="blast.sh"
-chmod +x "$blast_script"
-./blast.sh $gene_dir $dir$fastadir $dir$blastdir
+##mafft
+mafft "$dir"/all_seq.fasta > "$dir"/aligned.fasta
+
+##truncate
+python3 truncate.py "$dir"/aligned.fasta "$dir"/truncated.fasta
 
 ##editdistance
-python3 identity_from_blast.py "$dir"/
+python3 editdistance.py "$dir"/truncated.fasta "$dir"/edit.csv
 
 
 ##sourmash
@@ -48,9 +48,4 @@ python3 global.py "$dir"/ "$dir"/distance_matrix.csv "$dir$outputdir"/sourmash/ 
 python3 global.py "$dir"/ "$dir"/anidistance_matrix.csv "$dir$outputdir"/pyani/ ani
 
 ##editdistance
-python3 global.py "$dir"/ "$dir"/editdistance_matrix.csv "$dir$outputdir"/editdistance/ editdistance
-
-##create matrix for disease transmission network
-python3 transmission.py "$dir$outputdir"/sourmash/
-python3 transmission.py "$dir$outputdir"/pyani/
-python3 transmission.py "$dir$outputdir"/editdistance/
+python3 global.py "$dir"/ "$dir"/edit.csv "$dir$outputdir"/editdistance/ editdistance
